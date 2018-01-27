@@ -58,7 +58,6 @@ td {
   margin: 0;
   padding: 0;
   border: 0;
-  outline: 0;
   font-weight: inherit;
   font-style: inherit;
   font-family: inherit;
@@ -345,7 +344,18 @@ a.article-title:hover,
   }
 }
 #sub-nav {
+  margin-top: 1rem;
   float: right;
+  display: flex;
+  align-items: center;
+}
+#sub-nav a {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+#sub-nav a span {
+  position: absolute;
+  left: -10000px;
 }
 @media screen and (max-width: 839px) {
   #main-nav,

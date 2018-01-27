@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Approaching Inline-Form-Validation // niorad</title>
+
+        <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+        <meta property="og:title" content="Approaching Inline-Form-Validation" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://niorad.github.io/posts/inline-form-validation/" />
+    
+
+    <link href="" rel="alternate" type="application/rss+xml" title="niorad" />
+    <link rel="shortcut icon" href="/favicon.png">
+
+    <link href="https://niorad.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://niorad.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://niorad.github.io/css/style.css">
+
+    <meta name="generator" content="Hugo 0.32.4" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://niorad.github.io/">niorad</a>
+            <nav id="main-nav">
+                
+            </nav>
+            <nav id="sub-nav">
+                <a tabindex="0" href="https://twitter.com/niorad" title="niorad on twitter"><span>Twitter</span>
+                    <svg style="width: 30px; height: 30px;" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
+                    <g>
+                        <g>
+                            <path style="fill:#010002;" d="M612,116.258c-22.525,9.981-46.694,16.75-72.088,19.772c25.929-15.527,45.777-40.155,55.184-69.411    c-24.322,14.379-51.169,24.82-79.775,30.48c-22.907-24.437-55.49-39.658-91.63-39.658c-69.334,0-125.551,56.217-125.551,125.513    c0,9.828,1.109,19.427,3.251,28.606C197.065,206.32,104.556,156.337,42.641,80.386c-10.823,18.51-16.98,40.078-16.98,63.101    c0,43.559,22.181,81.993,55.835,104.479c-20.575-0.688-39.926-6.348-56.867-15.756v1.568c0,60.806,43.291,111.554,100.693,123.104    c-10.517,2.83-21.607,4.398-33.08,4.398c-8.107,0-15.947-0.803-23.634-2.333c15.985,49.907,62.336,86.199,117.253,87.194    c-42.947,33.654-97.099,53.655-155.916,53.655c-10.134,0-20.116-0.612-29.944-1.721c55.567,35.681,121.536,56.485,192.438,56.485    c230.948,0,357.188-191.291,357.188-357.188l-0.421-16.253C573.872,163.526,595.211,141.422,612,116.258z"/>
+                        </g>
+                    </g>
+                    </svg>
+                </a>
+                <a href="https://github.com/niorad" title="niorad on github"><span>Github</span>
+
+<svg version="1.1" style="width: 28px; height: auto;" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 28.7 28" style="enable-background:new 0 0 28.7 28;" xml:space="preserve">
+<style type="text/css">
+    .st0{fill-rule:evenodd;clip-rule:evenodd;fill:#221E1B;}
+</style>
+<path class="st0" d="M14.4,0C6.4,0,0,6.4,0,14.4C0,20.7,4.1,26.1,9.8,28c0.7,0.1,1-0.3,1-0.7c0-0.3,0-1.2,0-2.4
+    c-4,0.9-4.8-1.9-4.8-1.9c-0.7-1.7-1.6-2.1-1.6-2.1c-1.3-0.9,0.1-0.9,0.1-0.9c1.4,0.1,2.2,1.5,2.2,1.5c1.3,2.2,3.4,1.6,4.2,1.2
+    c0.1-0.9,0.5-1.6,0.9-1.9c-3.2-0.4-6.5-1.6-6.5-7.1c0-1.6,0.6-2.8,1.5-3.9C6.5,9.4,6,7.9,6.8,6c0,0,1.2-0.4,3.9,1.5
+    c1.1-0.3,2.4-0.5,3.6-0.5c1.2,0,2.4,0.2,3.6,0.5C20.7,5.6,21.9,6,21.9,6c0.8,2,0.3,3.4,0.1,3.8c0.9,1,1.5,2.3,1.5,3.9
+    c0,5.5-3.4,6.7-6.6,7.1c0.5,0.4,1,1.3,1,2.7c0,1.9,0,3.5,0,3.9c0,0.4,0.3,0.8,1,0.7c5.7-1.9,9.8-7.3,9.8-13.6
+    C28.7,6.4,22.3,0,14.4,0z"/>
+</svg>
+
+                </a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">Approaching Inline-Form-Validation</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/posts/inline-form-validation/" class="article-date">
+                <time datetime='2018-01-26T21:28:01.000&#43;01:00' itemprop="datePublished">2018-01-26</time>
+            </a>
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            
+
+<p>Checking the input from a user must always happen on the server, so why check it in the browser beforehand? Because UX. The days of reloading pages with error messages (and therefore erased password-fields) are over, and have been for years. Your users shouldn&rsquo;t be able to submit a form with missing data.</p>
+
+<p>I want to demonstrate that inline-validation is no rocket-surgery, and that it&rsquo;s doable with a few lines of JS and current web-standards, without any libraries and frameworks.</p>
+
+<h2 id="sticking-to-browser-standards">Sticking to browser-standards</h2>
+
+<p>It&rsquo;s a good approach to stick to web-standards whenever possible, and not to reimplement browser-features. You&rsquo;ll probably do a worse job than the browser-vendors. Modern browsers all have some kind of instant validation, which will prevent a form-submit when e.g. an input with the &ldquo;required&rdquo;-attribute has no value.</p>
+
+<p>Before you attempt to implement this yourself, consider sticking to this standard. For simpler forms in modern browsers, this will suffice.</p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation">Read all about browser-native form-validation on MDN.</a></p>
+
+<h2 id="roll-your-own-inline-validation">Roll your own inline-validation</h2>
+
+<p>Sometimes the built-in ways are not sufficient. You may have to support older browsers, which don&rsquo;t do validation. Often a client or designer is not happy with the style of the browser-feedback not matching your site&rsquo;s style. Most of the time, validation changes depending on certain fields, like the birthday, which is also not supported by browsers by default.</p>
+
+<p>Let&rsquo;s see how to tackle such a task.</p>
+
+<h2 id="the-html">The HTML</h2>
+
+<p>We&rsquo;ll start with a minimal form, where the user has to enter their name and tick a checkbox.
+(The attribute &ldquo;novalidate&rdquo; disables the browser&rsquo;s validation, which makes it easier to develop and test your code.)</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;first-name-form&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;POST&#34;</span> <span style="color:#a6e22e">novalidate</span>&gt;
+	&lt;<span style="color:#f92672">label</span>&gt;
+		Your first name:
+		&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstname&#34;</span>&gt;
+	&lt;/<span style="color:#f92672">label</span>&gt;
+	&lt;<span style="color:#f92672">label</span>&gt;
+    	&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;acceptTerms&#34;</span>&gt;
+    	I accept the terms.
+	&lt;/<span style="color:#f92672">label</span>&gt;
+	&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;Submit Form&lt;/<span style="color:#f92672">button</span>&gt;
+&lt;/<span style="color:#f92672">form</span>&gt;</code></pre></div>
+
+<p>For starters, we should think about a way to attach the validation-rules to the corresponding fields. One possible way would be to define some generic rules, and add them to our inputs as data-attributes.</p>
+
+<p><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;firstname&#34;</span> <span style="color:#a6e22e">data-validate</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required noNumbers maxLength&#34;</span>&gt;</code></pre></div>
+&nbsp;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;acceptTerms&#34;</span> <span style="color:#a6e22e">data-validate</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mustBeChecked&#34;</span>&gt;</code></pre></div></p>
+
+<p>This way we can easily add and remove validation-rules, once they are properly set up.</p>
+
+<p>Another thing that is missing are the validation-messages. The user needs to know, what they forgot, or entered wrong.</p>
+
+<p>For every validation-rule, there should be a corresponding message. We could create one container for the feedback-messages, and add them via JS when the validation-errors happen, or we could add all the possible messages to the markup and only show the applicable ones. I&rsquo;m a big fan of keeping all messages in the markup, since it&rsquo;s easier to handle languages this way. We can get the correct translations when the server renders the page, and don&rsquo;t need to know about it in JS.</p>
+
+<p>Let&rsquo;s add one message for each validation-rule. We&rsquo;ll add them right next to the input-tag in the label. The aria- and role-attributes help to keep our form accessible.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- Messages for the name-input --&gt;</span>
+&lt;<span style="color:#f92672">small</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;alert&#34;</span> <span style="color:#a6e22e">aria-hidden</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#a6e22e">data-validation-message</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;noNumbers&#34;</span>&gt;
+	Please don&#39;t enter any numbers.
+&lt;/<span style="color:#f92672">small</span>&gt;
+&lt;<span style="color:#f92672">small</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;alert&#34;</span> <span style="color:#a6e22e">aria-hidden</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#a6e22e">data-validation-message</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;maxLength&#34;</span>&gt;
+	Please enter 10 characters or fewer.
+&lt;/<span style="color:#f92672">small</span>&gt;
+&lt;<span style="color:#f92672">small</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;alert&#34;</span> <span style="color:#a6e22e">aria-hidden</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#a6e22e">data-validation-message</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;
+	Please enter a name.
+&lt;/<span style="color:#f92672">small</span>&gt;</code></pre></div>
+
+<p>In our CSS we will hide the messages by default, and only show them, when our script adds the class &ldquo;message-visible&rdquo;.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">[</span><span style="color:#f92672">data-validation-message</span><span style="color:#f92672">]</span> {
+	<span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">none</span>;
+}
+<span style="color:#f92672">[</span><span style="color:#f92672">data-validation-message</span><span style="color:#f92672">]</span>.<span style="color:#a6e22e">message-visible</span> {
+	<span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">block</span>;
+}</code></pre></div>
+
+<p>This way our form will still look OK with JS deactivated or broken.</p>
+
+<p>Let&rsquo;s have some fun! Now our JS-implementation builds on no frameworks or libraries at all. We&rsquo;re using ES6-syntax and -features, which means you&rsquo;ll need to use something like Babel, if you need to support older browsers.</p>
+
+<h2 id="the-approach">The approach</h2>
+
+<ul>
+<li>Every validator (like &ldquo;noNumbers&rdquo;) will be a function, which receives the input-element as parameter and returns true (is valid) or false (is invalid).</li>
+<li>We&rsquo;ll create a function, which checks a field for validity by checking its value against all corresponding validators, by calling the functions from the first point.</li>
+<li>It will be called whenever the user focuses out of it (the blur-event).</li>
+<li>If a validator fails, that function will take care of showing the correct error-message to the user.</li>
+<li>When the user submits the form, we will check every form-field once, and prevent the submit, if there are any invalid fields left.</li>
+</ul>
+
+<h2 id="the-validators">The validators</h2>
+
+<p>The validators are the most straightforward part. We&rsquo;ll create a functions for every rule we need. Let&rsquo;s take &ldquo;noNumbers&rdquo; as example.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">noNumbers</span>(<span style="color:#a6e22e">element</span>) {
+	<span style="color:#66d9ef">return</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">match</span>(<span style="color:#e6db74">/[0-9]/g</span>);
+}</code></pre></div>
+
+<p>We&rsquo;ll have several more of those, so why not collect them in an object? We&rsquo;ll add the other two we need from our example-markup, and add some ES6-Syntax while we&rsquo;re at it.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">validators</span> <span style="color:#f92672">=</span> {
+	<span style="color:#a6e22e">required</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">element</span> =&gt; <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>,
+	<span style="color:#a6e22e">noNumbers</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">element</span> =&gt; <span style="color:#f92672">!</span><span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">match</span>(<span style="color:#e6db74">/[0-9]/g</span>),
+	<span style="color:#a6e22e">maxLength</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">element</span> =&gt; <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">10</span>,
+	<span style="color:#a6e22e">mustBeChecked</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">element</span> =&gt; <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">checked</span>
+};</code></pre></div>
+
+<h2 id="the-validation">The validation</h2>
+
+<p>Now we need a function that calls all those checks we provided in the data attribute of the input-element. It will parse the content of its &ldquo;data-validate&rdquo;-attribute, and convert it to an array. Since the names of the rules are equal to the names of their corresponding function, we can invoke them by calling &ldquo;validators[rule](value)&ldquo;.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">validateElement</span>(<span style="color:#a6e22e">element</span>) {
+	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">rules</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">validate</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34; &#34;</span>);
+	<span style="color:#a6e22e">rules</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">rule</span> =&gt; {
+		<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">validators</span>[<span style="color:#a6e22e">rule</span>](<span style="color:#a6e22e">element</span>)) {
+			<span style="color:#66d9ef">return</span>;
+		} <span style="color:#66d9ef">else</span> {
+			<span style="color:#a6e22e">markElementInvalid</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">rule</span>);
+		}
+	});
+}</code></pre></div>
+
+<p>If the validator returns &ldquo;false&rdquo;, we know that the validation has failed, and need to show the correct feedback-message and add some classes. For this purpose we&rsquo;ll create a new function called &ldquo;markElementInvalid&rdquo;.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">markElementInvalid</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">validatorName</span>) {
+	<span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;invalid&#34;</span>);
+	<span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">setAttribute</span>(<span style="color:#e6db74">&#34;aria-invalid&#34;</span>, <span style="color:#66d9ef">true</span>);
+	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">feedbackMessage</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">element</span>
+							.<span style="color:#a6e22e">parentNode</span>
+							.<span style="color:#a6e22e">querySelector</span>(
+								<span style="color:#e6db74">`[data-validation-message=</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">validatorName</span><span style="color:#e6db74">}</span><span style="color:#e6db74">]`</span>
+							);
+	<span style="color:#a6e22e">feedbackMessage</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;message-visible&#34;</span>);
+	<span style="color:#a6e22e">feedbackMessage</span>.<span style="color:#a6e22e">setAttribute</span>(<span style="color:#e6db74">&#39;aria-hidden&#39;</span>, <span style="color:#66d9ef">false</span>);
+}</code></pre></div>
+
+<p>&ldquo;markElementInvalid&rdquo; will set some classes and attributes in the input-field and the feedback-message. The &ldquo;aria&rdquo;-attributes will help to enhance the accessibility a bit. We&rsquo;ll use the &ldquo;invalid&rdquo;-class to style the invalid-state of the input, so we&rsquo;ll need to set that in our CSS, too.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">input</span>.<span style="color:#a6e22e">invalid</span> {
+  <span style="color:#66d9ef">border-color</span>: <span style="color:#66d9ef">brown</span>;
+}</code></pre></div>
+
+<p>The main functionality is there, it just needs to be triggered at the right time.</p>
+
+<p>There are several points in time where triggering the validation is possible.</p>
+
+<ul>
+<li>On page-load</li>
+<li>After the user focuses an input-field</li>
+<li>After the user changes an input-field</li>
+<li>After the user unfocuses an input-field</li>
+<li>After the user submits the form</li>
+</ul>
+
+<p>We don&rsquo;t want to annoy the user, so we need to be careful. Showing a failing validation too early might come across as pushy. It&rsquo;s a good practise to check a field after unfocus, or blur, which means the input loses focus by pressing &ldquo;tab&rdquo; or clicking outside of it. We&rsquo;ll check every field one more time, after the user submits the form, to prevent sending false data.</p>
+
+<p>Let&rsquo;s enable the validation for our field on blur. This code will initialize our previous work.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">form</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;first-name-form&#34;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">formElements</span> <span style="color:#f92672">=</span> Array.<span style="color:#a6e22e">from</span>(<span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">elements</span>);
+
+<span style="color:#a6e22e">formElements</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">formElement</span> =&gt; {
+  <span style="color:#a6e22e">formElement</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;blur&#34;</span>, () =&gt; {
+    <span style="color:#a6e22e">validateElement</span>(<span style="color:#a6e22e">formElement</span>);
+  });
+});</code></pre></div>
+
+<p>One caveat: The &ldquo;blur&rdquo;-event works well for text-inputs. For other types, &ldquo;focusout&rdquo; or &ldquo;change&rdquo; may work better, depending on the desired behavior.</p>
+
+<p>The user now gets feedback after entering bad data. But there&rsquo;s no way to remove the error-state after they corrected the mistakes. We&rsquo;ll introduce the &ldquo;resetValidation&rdquo;-function, which is basically the exact opposite of the &ldquo;markElementInvalid&rdquo;. It&rsquo;s a bit simpler, since there is no validator to consider. The input-field will be reset to its initial state.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">resetValidation</span>(<span style="color:#a6e22e">element</span>) {
+	<span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">remove</span>(<span style="color:#e6db74">&#34;invalid&#34;</span>);
+	<span style="color:#a6e22e">element</span>.<span style="color:#a6e22e">setAttribute</span>(<span style="color:#e6db74">&#34;aria-invalid&#34;</span>, <span style="color:#66d9ef">false</span>);
+	<span style="color:#a6e22e">element</span>
+		.<span style="color:#a6e22e">parentNode</span>
+		.<span style="color:#a6e22e">querySelectorAll</span>(<span style="color:#e6db74">&#34;[data-validation-message]&#34;</span>)
+		.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">e</span> =&gt; {
+			<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">remove</span>(<span style="color:#e6db74">&#34;message-visible&#34;</span>);
+			<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">setAttribute</span>(<span style="color:#e6db74">&#34;aria-hidden&#34;</span>, <span style="color:#66d9ef">true</span>);
+		});
+}</code></pre></div>
+
+<p>To apply this reset-function, we&rsquo;ll call it everytime we do a validation, before the check. This way we make sure it&rsquo;s always set to the initial state before we do anything. We&rsquo;ll insert the following line as first thing in the &ldquo;validateElement&rdquo;-function.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">validateElement</span>(<span style="color:#a6e22e">element</span>) {
+  <span style="color:#a6e22e">resetValidation</span>(<span style="color:#a6e22e">element</span>);
+  <span style="color:#75715e">//...
+</span><span style="color:#75715e"></span>}</code></pre></div>
+
+<p>Lastly, we need to prevent the form-submit, if there are any invalid fields left. The user might click directly on &ldquo;Submit&rdquo; without focusing out of a field, which would leave no chance to correct the input. We&rsquo;ll add an event-listener to the form, which checks all fields and prevents the submit, if some are not valid. We&rsquo;ll also add the &ldquo;invalid&rdquo;-class to the whole form, so the user is certain that something wrong happened.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;submit&#34;</span>, <span style="color:#a6e22e">event</span> =&gt; {
+	<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">formIsValid</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+	<span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">remove</span>(<span style="color:#e6db74">&#34;invalid&#34;</span>);
+
+	<span style="color:#a6e22e">formElements</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">formElement</span> =&gt; {
+		<span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">formElement</span>.<span style="color:#a6e22e">dataset</span>) <span style="color:#66d9ef">return</span>;
+		<span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">formElement</span>.<span style="color:#a6e22e">dataset</span>.<span style="color:#a6e22e">validate</span>) <span style="color:#66d9ef">return</span>;
+		<span style="color:#a6e22e">validateElement</span>(<span style="color:#a6e22e">formElement</span>);
+	});
+
+	<span style="color:#a6e22e">formIsValid</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">querySelectorAll</span>(<span style="color:#e6db74">&#34;.invalid&#34;</span>).<span style="color:#a6e22e">length</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>;
+
+	<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">formIsValid</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">false</span>) {
+		<span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#34;invalid&#34;</span>);
+		<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">preventDefault</span>();
+	}
+});</code></pre></div>
+
+<h2 id="a-working-example">A Working example</h2>
+
+<p>That&rsquo;s it! We now have a basic working inline-validation for our form. Here&rsquo;s the working example, feel free to fork it and play around with it:
+<div style="margin-top: 1rem">
+<iframe height='350' scrolling='no' title='Inline Form-Validation Example' src='//codepen.io/niorad/embed/preview/wpQXMz/?height=350&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'></iframe>
+
+</div>
+</p>
+
+<h2 id="extending-and-improving">Extending and improving</h2>
+
+<p>We have established a minimal working validation. Here are some possible ways this could be extended:</p>
+
+<ul>
+<li>Adding animation to error-messages for better visibility. The feedback-messages could flash for two seconds, so it&rsquo;s clearer that something went wrong.</li>
+<li>For long forms, a scroll-to-first-error could be added in case the user still has errors left on form-submit.</li>
+<li>Forms get complex very quickly. Sometimes, the validation of one field depends on the value of another. For example: A field might be required, if the user is younger than a certain age. In that case, the validators would have to be extended to receive arguments from the data-attribute.</li>
+<li>To activate/disable entire groups of inputs, we could add a &ldquo;data-disable-validation&rdquo;-attribute to their container, and prevent checking an input if it has such a parent-element.</li>
+</ul>
+
+<p>That&rsquo;s all for now. If you like to give feedback or suggestions, hit me up on <a href="https://twitter.com/niorad">Twitter</a>.</p>
+
+<p>Thanks for reading!</p>
+
+        </div>
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/posts/hello-sailor/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Hello, Sailor!&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+</article>
+
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 niorad&nbsp;
+            Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/carsonip/hugo-theme-minos">Minos</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

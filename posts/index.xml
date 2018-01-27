@@ -6,18 +6,28 @@
     <description>Recent content in Posts on niorad</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Jan 2018 13:57:18 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jan 2018 21:28:01 +0100</lastBuildDate>
     
 	<atom:link href="https://niorad.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Hello Sailor</title>
+      <title>Approaching Inline-Form-Validation</title>
+      <link>https://niorad.github.io/posts/inline-form-validation/</link>
+      <pubDate>Fri, 26 Jan 2018 21:28:01 +0100</pubDate>
+      
+      <guid>https://niorad.github.io/posts/inline-form-validation/</guid>
+      <description>Checking the input from a user must always happen on the server, so why check it in the browser beforehand? Because UX. The days of reloading pages with error messages (and therefore erased password-fields) are over, and have been for years. Your users shouldn&amp;rsquo;t be able to submit a form with missing data.
+I want to demonstrate that inline-validation is no rocket-surgery, and that it&amp;rsquo;s doable with a few lines of JS and current web-standards, without any libraries and frameworks.</description>
+    </item>
+    
+    <item>
+      <title>Hello, Sailor!</title>
       <link>https://niorad.github.io/posts/hello-sailor/</link>
-      <pubDate>Mon, 22 Jan 2018 13:57:18 +0100</pubDate>
+      <pubDate>Thu, 25 Jan 2018 13:57:18 +0100</pubDate>
       
       <guid>https://niorad.github.io/posts/hello-sailor/</guid>
-      <description></description>
+      <description>Hello, Sailor! This is my little place for technical tutorials, thoughts, and rants.</description>
     </item>
     
   </channel>
