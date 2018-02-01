@@ -6,10 +6,25 @@
     <description>Recent content in Posts on niorad</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Jan 2018 21:28:01 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 31 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://niorad.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Keeping the Footer at the Bottom with CSS-Grid</title>
+      <link>https://niorad.github.io/posts/keeping-footer-bottom/</link>
+      <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://niorad.github.io/posts/keeping-footer-bottom/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://niorad.github.io/footer_bottom/title_image.jpg&#34; alt=&#34;Title-Image&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;At some point in a project, one gets annoyed by the footer hovering right under the header, because there is no content yet to fill up the space. There also may be some really short pages (like the 404), which might not be long enough to fill the whole browser.&lt;/p&gt;
+
+&lt;p&gt;Keeping the footer at the browser&amp;rsquo;s bottom just got a little bit easier with CSS-Grid. It&amp;rsquo;s possible to go with some CSS-trickery, Flexbox or JS, but the Grid-solution is the most elegant and simple in my opinion.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Approaching Inline-Form-Validation</title>

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://niorad.github.io/posts/keeping-footer-bottom/</loc>
+    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://niorad.github.io/posts/inline-form-validation/</loc>
     <lastmod>2018-01-26T21:28:01+01:00</lastmod>
   </url>
@@ -19,7 +24,7 @@
   
   <url>
     <loc>https://niorad.github.io/posts/</loc>
-    <lastmod>2018-01-26T21:28:01+01:00</lastmod>
+    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -30,7 +35,7 @@
   
   <url>
     <loc>https://niorad.github.io/</loc>
-    <lastmod>2018-01-26T21:28:01+01:00</lastmod>
+    <lastmod>2018-01-31T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>niorad</title>
+    <title>Keeping the Footer at the Bottom with CSS-Grid // niorad</title>
 
         <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -10,14 +10,14 @@
     <meta name="keywords" content="">
     <meta name="author" content="">
 
-        <meta property="og:title" content="niorad" />
+        <meta property="og:title" content="Keeping the Footer at the Bottom with CSS-Grid" />
     <meta property="og:description" content="" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:url" content="https://niorad.github.io/" />
+    <meta property="og:url" content="https://niorad.github.io/posts/keeping-footer-bottom/" />
     
 
-    <link href="https://niorad.github.io/index.xml" rel="alternate" type="application/rss+xml" title="niorad" />
+    <link href="" rel="alternate" type="application/rss+xml" title="niorad" />
     <link rel="shortcut icon" href="/favicon.png">
 
     <link href="https://niorad.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
@@ -27,6 +27,7 @@
 
     <meta name="generator" content="Hugo 0.32.4" />
 </head>
+
 
 <body>
 <div id="container">
@@ -70,106 +71,86 @@
 </header>
 
     <section id="main" class="outer">
-        
         <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/posts/keeping-footer-bottom/">Keeping the Footer at the Bottom with CSS-Grid</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/posts/keeping-footer-bottom/" class="article-date">
-                        <time datetime='2018-01-31T00:00:00.000&#43;00:00' itemprop="datePublished">2018-01-31</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    <p><img src="/footer_bottom/title_image.jpg" alt="Title-Image" /></p>
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">Keeping the Footer at the Bottom with CSS-Grid</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/posts/keeping-footer-bottom/" class="article-date">
+                <time datetime='2018-01-31T00:00:00.000&#43;00:00' itemprop="datePublished">2018-01-31</time>
+            </a>
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="/footer_bottom/title_image.jpg" alt="Title-Image" /></p>
 
 <p>At some point in a project, one gets annoyed by the footer hovering right under the header, because there is no content yet to fill up the space. There also may be some really short pages (like the 404), which might not be long enough to fill the whole browser.</p>
 
 <p>Keeping the footer at the browser&rsquo;s bottom just got a little bit easier with CSS-Grid. It&rsquo;s possible to go with some CSS-trickery, Flexbox or JS, but the Grid-solution is the most elegant and simple in my opinion.</p>
 
 <p></p>
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/posts/keeping-footer-bottom/">Read More</a>
-                    </p>
-                </div>
 
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/posts/inline-form-validation/">Approaching Inline-Form-Validation</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/posts/inline-form-validation/" class="article-date">
-                        <time datetime='2018-01-26T21:28:01.000&#43;01:00' itemprop="datePublished">2018-01-26</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    Checking the input from a user must always happen on the server, so why check it in the browser beforehand? Because UX. The days of reloading pages with error messages (and therefore erased password-fields) are over, and have been for years. Your users shouldn&rsquo;t be able to submit a form with missing data.
-I want to demonstrate that inline-validation is no rocket-surgery, and that it&rsquo;s doable with a few lines of JS and current web-standards, without any libraries and frameworks.
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/posts/inline-form-validation/">Read More</a>
-                    </p>
-                </div>
+<p>Please note that this is only supported in modern browsers, as of this writing. The good thing is, that this method won&rsquo;t break anything for older browsers.</p>
 
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/posts/hello-sailor/">Hello, Sailor!</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/posts/hello-sailor/" class="article-date">
-                        <time datetime='2018-01-25T13:57:18.000&#43;01:00' itemprop="datePublished">2018-01-25</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    Hello, Sailor! This is my little place for technical tutorials, thoughts, and rants.
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/posts/hello-sailor/">Read More</a>
-                    </p>
-                </div>
+<p>The HTML-Structure will be as follows:</p>
 
-                
-            </div>
-        </article>
-        
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">html</span>&gt;
+	&lt;<span style="color:#f92672">body</span>&gt;
+		&lt;<span style="color:#f92672">article</span>&gt;
+			&lt;<span style="color:#f92672">header</span>&gt;
+			&lt;/<span style="color:#f92672">header</span>&gt;
+			&lt;<span style="color:#f92672">main</span>&gt;
+			&lt;/<span style="color:#f92672">main</span>&gt;
+			&lt;<span style="color:#f92672">footer</span>&gt;
+			&lt;/<span style="color:#f92672">footer</span>&gt;
+		&lt;/<span style="color:#f92672">article</span>&gt;
+	&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;</code></pre></div>
+
+<p>This is probably a bit simplified in comparison to some real-world-projects. It&rsquo;s important to keep the main content-area (main) and the footer (footer) in the same parent-element.</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">html</span><span style="color:#f92672">,</span> <span style="color:#f92672">body</span> {
+	<span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+	<span style="color:#66d9ef">height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+}
+
+<span style="color:#f92672">article</span> {
+	<span style="color:#66d9ef">min-height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+	<span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">grid</span>;
+	<span style="color:#66d9ef">grid-template-rows</span>: <span style="color:#66d9ef">auto</span> <span style="color:#ae81ff">1</span>fr <span style="color:#66d9ef">auto</span>;
+}</code></pre></div>
+
+<p>The important bit is the &ldquo;grid-template-rows&rdquo;-property. Here we tell the browser, that we want the first child-element of &ldquo;article&rdquo; to be just as high as it naturally is (&ldquo;auto&rdquo;). The second should be one <a href="https://www.w3.org/TR/css3-grid-layout/#fr-unit">fr</a> high, which means it will get as high as possible, since there&rsquo;s no other fr-item in there. The third child will be of natural height. again.</p>
+
+<p>Don&rsquo;t forget to set the html- and body-elements to be of 100% height, or else your grid-container won&rsquo;t fill up the entire browser.</p>
+
+<p>Here&rsquo;s the working example on CodePen.</p>
+
+<div style="margin-top: 1rem">
+<iframe height='350' scrolling='no' title='Inline Form-Validation Example' src='//codepen.io/niorad/embed/preview/RQPgqV/?height=350&theme-id=dark&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'></iframe>
+
+</div>
+
+
+<p>In case you didn&rsquo;t know: CSS-Grid is now supported on every modern browser. It&rsquo;s a convenient way to define page-layouts and so much more. Go check out Wes Bos&rsquo; <a href="https://cssgrid.io/">free course</a> on the topic.</p>
+        </div>
+
 
         
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/posts/inline-form-validation/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Approaching Inline-Form-Validation&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+</article>
 
     </section>
     <footer id="footer">
