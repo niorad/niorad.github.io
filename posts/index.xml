@@ -8,7 +8,7 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 31 Jan 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://niorad.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://niorad.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -23,7 +23,51 @@
 
 &lt;p&gt;Keeping the footer at the browser&amp;rsquo;s bottom just got a little bit easier with CSS-Grid. It&amp;rsquo;s possible to go with some CSS-trickery, Flexbox or JS, but the Grid-solution is the most elegant and simple in my opinion.&lt;/p&gt;
 
-&lt;p&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Please note that this is only supported in modern browsers, as of this writing. The good thing is, that this method won&amp;rsquo;t break anything for older browsers.&lt;/p&gt;
+
+&lt;p&gt;The HTML-Structure will be as follows:&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;html&lt;/span&gt;&amp;gt;
+	&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt;&amp;gt;
+		&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;article&lt;/span&gt;&amp;gt;
+			&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;header&lt;/span&gt;&amp;gt;
+			&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;header&lt;/span&gt;&amp;gt;
+			&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;main&lt;/span&gt;&amp;gt;
+			&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;main&lt;/span&gt;&amp;gt;
+			&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;footer&lt;/span&gt;&amp;gt;
+			&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;footer&lt;/span&gt;&amp;gt;
+		&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;article&lt;/span&gt;&amp;gt;
+	&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt;&amp;gt;
+&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;html&lt;/span&gt;&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This is probably a bit simplified in comparison to some real-world-projects. It&amp;rsquo;s important to keep the main content-area (main) and the footer (footer) in the same parent-element.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;html&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt; {
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;width&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;;
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;height&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;;
+}
+
+&lt;span style=&#34;color:#f92672&#34;&gt;article&lt;/span&gt; {
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;min-height&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;;
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;display&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;grid&lt;/span&gt;;
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;grid-template-rows&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;fr &lt;span style=&#34;color:#66d9ef&#34;&gt;auto&lt;/span&gt;;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The important bit is the &amp;ldquo;grid-template-rows&amp;rdquo;-property. Here we tell the browser, that we want the first child-element of &amp;ldquo;article&amp;rdquo; to be just as high as it naturally is (&amp;ldquo;auto&amp;rdquo;). The second should be one &lt;a href=&#34;https://www.w3.org/TR/css3-grid-layout/#fr-unit&#34;&gt;fr&lt;/a&gt; high, which means it will get as high as possible, since there&amp;rsquo;s no other fr-item in there. The third child will be of natural height. again.&lt;/p&gt;
+
+&lt;p&gt;Don&amp;rsquo;t forget to set the html- and body-elements to be of 100% height, or else your grid-container won&amp;rsquo;t fill up the entire browser.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s the working example on CodePen.&lt;/p&gt;
+
+&lt;div style=&#34;margin-top: 1rem&#34;&gt;
+&lt;iframe height=&#39;350&#39; scrolling=&#39;no&#39; title=&#39;Inline Form-Validation Example&#39; src=&#39;//codepen.io/niorad/embed/preview/RQPgqV/?height=350&amp;theme-id=dark&amp;default-tab=js,result&amp;embed-version=2&#39; frameborder=&#39;no&#39; allowtransparency=&#39;true&#39; allowfullscreen=&#39;true&#39; style=&#39;width: 100%;&#39;&gt;&lt;/iframe&gt;
+
+&lt;/div&gt;
+
+
+&lt;p&gt;In case you didn&amp;rsquo;t know: CSS-Grid is now supported on every modern browser. It&amp;rsquo;s a convenient way to define page-layouts and so much more. Go check out Wes Bos&amp;rsquo; &lt;a href=&#34;https://cssgrid.io/&#34;&gt;free course&lt;/a&gt; on the topic.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -32,8 +76,235 @@
       <pubDate>Fri, 26 Jan 2018 21:28:01 +0100</pubDate>
       
       <guid>https://niorad.github.io/posts/inline-form-validation/</guid>
-      <description>Checking the input from a user must always happen on the server, so why check it in the browser beforehand? Because UX. The days of reloading pages with error messages (and therefore erased password-fields) are over, and have been for years. Your users shouldn&amp;rsquo;t be able to submit a form with missing data.
-I want to demonstrate that inline-validation is no rocket-surgery, and that it&amp;rsquo;s doable with a few lines of JS and current web-standards, without any libraries and frameworks.</description>
+      <description>
+
+&lt;p&gt;Checking the input from a user must always happen on the server, so why check it in the browser beforehand? Because UX. The days of reloading pages with error messages (and therefore erased password-fields) are over, and have been for years. Your users shouldn&amp;rsquo;t be able to submit a form with missing data.&lt;/p&gt;
+
+&lt;p&gt;I want to demonstrate that inline-validation is no rocket-surgery, and that it&amp;rsquo;s doable with a few lines of JS and current web-standards, without any libraries and frameworks.&lt;/p&gt;
+
+&lt;h2 id=&#34;sticking-to-browser-standards&#34;&gt;Sticking to browser-standards&lt;/h2&gt;
+
+&lt;p&gt;It&amp;rsquo;s a good approach to stick to web-standards whenever possible, and not to reimplement browser-features. You&amp;rsquo;ll probably do a worse job than the browser-vendors. Modern browsers all have some kind of instant validation, which will prevent a form-submit when e.g. an input with the &amp;ldquo;required&amp;rdquo;-attribute has no value.&lt;/p&gt;
+
+&lt;p&gt;Before you attempt to implement this yourself, consider sticking to this standard. For simpler forms in modern browsers, this will suffice.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation&#34;&gt;Read all about browser-native form-validation on MDN.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;roll-your-own-inline-validation&#34;&gt;Roll your own inline-validation&lt;/h2&gt;
+
+&lt;p&gt;Sometimes the built-in ways are not sufficient. You may have to support older browsers, which don&amp;rsquo;t do validation. Often a client or designer is not happy with the style of the browser-feedback not matching your site&amp;rsquo;s style. Most of the time, validation changes depending on certain fields, like the birthday, which is also not supported by browsers by default.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s see how to tackle such a task.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-html&#34;&gt;The HTML&lt;/h2&gt;
+
+&lt;p&gt;We&amp;rsquo;ll start with a minimal form, where the user has to enter their name and tick a checkbox.
+(The attribute &amp;ldquo;novalidate&amp;rdquo; disables the browser&amp;rsquo;s validation, which makes it easier to develop and test your code.)&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;form&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;first-name-form&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;action&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;#&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;method&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;POST&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;novalidate&lt;/span&gt;&amp;gt;
+	&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;label&lt;/span&gt;&amp;gt;
+		Your first name:
+		&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;firstname&amp;#34;&lt;/span&gt;&amp;gt;
+	&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;label&lt;/span&gt;&amp;gt;
+	&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;label&lt;/span&gt;&amp;gt;
+    	&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;checkbox&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;acceptTerms&amp;#34;&lt;/span&gt;&amp;gt;
+    	I accept the terms.
+	&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;label&lt;/span&gt;&amp;gt;
+	&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;button&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;submit&amp;#34;&lt;/span&gt;&amp;gt;Submit Form&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;button&lt;/span&gt;&amp;gt;
+&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;form&lt;/span&gt;&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;For starters, we should think about a way to attach the validation-rules to the corresponding fields. One possible way would be to define some generic rules, and add them to our inputs as data-attributes.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;firstname&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;data-validate&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;required noNumbers maxLength&amp;#34;&lt;/span&gt;&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&amp;nbsp;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;checkbox&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;acceptTerms&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;data-validate&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mustBeChecked&amp;#34;&lt;/span&gt;&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;This way we can easily add and remove validation-rules, once they are properly set up.&lt;/p&gt;
+
+&lt;p&gt;Another thing that is missing are the validation-messages. The user needs to know, what they forgot, or entered wrong.&lt;/p&gt;
+
+&lt;p&gt;For every validation-rule, there should be a corresponding message. We could create one container for the feedback-messages, and add them via JS when the validation-errors happen, or we could add all the possible messages to the markup and only show the applicable ones. I&amp;rsquo;m a big fan of keeping all messages in the markup, since it&amp;rsquo;s easier to handle languages this way. We can get the correct translations when the server renders the page, and don&amp;rsquo;t need to know about it in JS.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s add one message for each validation-rule. We&amp;rsquo;ll add them right next to the input-tag in the label. The aria- and role-attributes help to keep our form accessible.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!-- Messages for the name-input --&amp;gt;&lt;/span&gt;
+&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;small&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;role&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;alert&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;aria-hidden&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;data-validation-message&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;noNumbers&amp;#34;&lt;/span&gt;&amp;gt;
+	Please don&amp;#39;t enter any numbers.
+&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;small&lt;/span&gt;&amp;gt;
+&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;small&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;role&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;alert&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;aria-hidden&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;data-validation-message&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;maxLength&amp;#34;&lt;/span&gt;&amp;gt;
+	Please enter 10 characters or fewer.
+&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;small&lt;/span&gt;&amp;gt;
+&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;small&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;role&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;alert&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;aria-hidden&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;data-validation-message&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;required&amp;#34;&lt;/span&gt;&amp;gt;
+	Please enter a name.
+&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;small&lt;/span&gt;&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;In our CSS we will hide the messages by default, and only show them, when our script adds the class &amp;ldquo;message-visible&amp;rdquo;.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;data-validation-message&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; {
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;display&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;none&lt;/span&gt;;
+}
+&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;data-validation-message&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;message-visible&lt;/span&gt; {
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;display&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;block&lt;/span&gt;;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This way our form will still look OK with JS deactivated or broken.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s have some fun! Now our JS-implementation builds on no frameworks or libraries at all. We&amp;rsquo;re using ES6-syntax and -features, which means you&amp;rsquo;ll need to use something like Babel, if you need to support older browsers.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-approach&#34;&gt;The approach&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Every validator (like &amp;ldquo;noNumbers&amp;rdquo;) will be a function, which receives the input-element as parameter and returns true (is valid) or false (is invalid).&lt;/li&gt;
+&lt;li&gt;We&amp;rsquo;ll create a function, which checks a field for validity by checking its value against all corresponding validators, by calling the functions from the first point.&lt;/li&gt;
+&lt;li&gt;It will be called whenever the user focuses out of it (the blur-event).&lt;/li&gt;
+&lt;li&gt;If a validator fails, that function will take care of showing the correct error-message to the user.&lt;/li&gt;
+&lt;li&gt;When the user submits the form, we will check every form-field once, and prevent the submit, if there are any invalid fields left.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-validators&#34;&gt;The validators&lt;/h2&gt;
+
+&lt;p&gt;The validators are the most straightforward part. We&amp;rsquo;ll create a functions for every rule we need. Let&amp;rsquo;s take &amp;ldquo;noNumbers&amp;rdquo; as example.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;noNumbers&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;) {
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;value&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;match&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;/[0-9]/g&lt;/span&gt;);
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;We&amp;rsquo;ll have several more of those, so why not collect them in an object? We&amp;rsquo;ll add the other two we need from our example-markup, and add some ES6-Syntax while we&amp;rsquo;re at it.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;validators&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;required&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt; =&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;value&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;noNumbers&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt; =&amp;gt; &lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;value&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;match&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;/[0-9]/g&lt;/span&gt;),
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;maxLength&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt; =&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;value&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;,
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;mustBeChecked&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt; =&amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;checked&lt;/span&gt;
+};&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;the-validation&#34;&gt;The validation&lt;/h2&gt;
+
+&lt;p&gt;Now we need a function that calls all those checks we provided in the data attribute of the input-element. It will parse the content of its &amp;ldquo;data-validate&amp;rdquo;-attribute, and convert it to an array. Since the names of the rules are equal to the names of their corresponding function, we can invoke them by calling &amp;ldquo;validators[rule](value)&amp;ldquo;.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;validateElement&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;) {
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rules&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;dataset&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;validate&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;split&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; &amp;#34;&lt;/span&gt;);
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;rules&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;forEach&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;rule&lt;/span&gt; =&amp;gt; {
+		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;validators&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;rule&lt;/span&gt;](&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;)) {
+			&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+		} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; {
+			&lt;span style=&#34;color:#a6e22e&#34;&gt;markElementInvalid&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;rule&lt;/span&gt;);
+		}
+	});
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;If the validator returns &amp;ldquo;false&amp;rdquo;, we know that the validation has failed, and need to show the correct feedback-message and add some classes. For this purpose we&amp;rsquo;ll create a new function called &amp;ldquo;markElementInvalid&amp;rdquo;.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;markElementInvalid&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;validatorName&lt;/span&gt;) {
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;classList&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;add&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;);
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;setAttribute&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;aria-invalid&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;);
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;feedbackMessage&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;
+							.&lt;span style=&#34;color:#a6e22e&#34;&gt;parentNode&lt;/span&gt;
+							.&lt;span style=&#34;color:#a6e22e&#34;&gt;querySelector&lt;/span&gt;(
+								&lt;span style=&#34;color:#e6db74&#34;&gt;`[data-validation-message=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;validatorName&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;]`&lt;/span&gt;
+							);
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;feedbackMessage&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;classList&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;add&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;message-visible&amp;#34;&lt;/span&gt;);
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;feedbackMessage&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;setAttribute&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;aria-hidden&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;);
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&amp;ldquo;markElementInvalid&amp;rdquo; will set some classes and attributes in the input-field and the feedback-message. The &amp;ldquo;aria&amp;rdquo;-attributes will help to enhance the accessibility a bit. We&amp;rsquo;ll use the &amp;ldquo;invalid&amp;rdquo;-class to style the invalid-state of the input, so we&amp;rsquo;ll need to set that in our CSS, too.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;input&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;invalid&lt;/span&gt; {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;border-color&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;brown&lt;/span&gt;;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The main functionality is there, it just needs to be triggered at the right time.&lt;/p&gt;
+
+&lt;p&gt;There are several points in time where triggering the validation is possible.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;On page-load&lt;/li&gt;
+&lt;li&gt;After the user focuses an input-field&lt;/li&gt;
+&lt;li&gt;After the user changes an input-field&lt;/li&gt;
+&lt;li&gt;After the user unfocuses an input-field&lt;/li&gt;
+&lt;li&gt;After the user submits the form&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We don&amp;rsquo;t want to annoy the user, so we need to be careful. Showing a failing validation too early might come across as pushy. It&amp;rsquo;s a good practise to check a field after unfocus, or blur, which means the input loses focus by pressing &amp;ldquo;tab&amp;rdquo; or clicking outside of it. We&amp;rsquo;ll check every field one more time, after the user submits the form, to prevent sending false data.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s enable the validation for our field on blur. This code will initialize our previous work.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;form&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; document.&lt;span style=&#34;color:#a6e22e&#34;&gt;getElementById&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;first-name-form&amp;#34;&lt;/span&gt;);
+&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;formElements&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Array.&lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;form&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;elements&lt;/span&gt;);
+
+&lt;span style=&#34;color:#a6e22e&#34;&gt;formElements&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;forEach&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;formElement&lt;/span&gt; =&amp;gt; {
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;formElement&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;addEventListener&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;blur&amp;#34;&lt;/span&gt;, () =&amp;gt; {
+    &lt;span style=&#34;color:#a6e22e&#34;&gt;validateElement&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;formElement&lt;/span&gt;);
+  });
+});&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;One caveat: The &amp;ldquo;blur&amp;rdquo;-event works well for text-inputs. For other types, &amp;ldquo;focusout&amp;rdquo; or &amp;ldquo;change&amp;rdquo; may work better, depending on the desired behavior.&lt;/p&gt;
+
+&lt;p&gt;The user now gets feedback after entering bad data. But there&amp;rsquo;s no way to remove the error-state after they corrected the mistakes. We&amp;rsquo;ll introduce the &amp;ldquo;resetValidation&amp;rdquo;-function, which is basically the exact opposite of the &amp;ldquo;markElementInvalid&amp;rdquo;. It&amp;rsquo;s a bit simpler, since there is no validator to consider. The input-field will be reset to its initial state.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;resetValidation&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;) {
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;classList&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;remove&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;);
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;setAttribute&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;aria-invalid&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;);
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;
+		.&lt;span style=&#34;color:#a6e22e&#34;&gt;parentNode&lt;/span&gt;
+		.&lt;span style=&#34;color:#a6e22e&#34;&gt;querySelectorAll&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;[data-validation-message]&amp;#34;&lt;/span&gt;)
+		.&lt;span style=&#34;color:#a6e22e&#34;&gt;forEach&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;e&lt;/span&gt; =&amp;gt; {
+			&lt;span style=&#34;color:#a6e22e&#34;&gt;e&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;classList&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;remove&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;message-visible&amp;#34;&lt;/span&gt;);
+			&lt;span style=&#34;color:#a6e22e&#34;&gt;e&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;setAttribute&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;aria-hidden&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;);
+		});
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To apply this reset-function, we&amp;rsquo;ll call it everytime we do a validation, before the check. This way we make sure it&amp;rsquo;s always set to the initial state before we do anything. We&amp;rsquo;ll insert the following line as first thing in the &amp;ldquo;validateElement&amp;rdquo;-function.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;validateElement&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;) {
+  &lt;span style=&#34;color:#a6e22e&#34;&gt;resetValidation&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;element&lt;/span&gt;);
+  &lt;span style=&#34;color:#75715e&#34;&gt;//...
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Lastly, we need to prevent the form-submit, if there are any invalid fields left. The user might click directly on &amp;ldquo;Submit&amp;rdquo; without focusing out of a field, which would leave no chance to correct the input. We&amp;rsquo;ll add an event-listener to the form, which checks all fields and prevents the submit, if some are not valid. We&amp;rsquo;ll also add the &amp;ldquo;invalid&amp;rdquo;-class to the whole form, so the user is certain that something wrong happened.&lt;/p&gt;
+
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;form&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;addEventListener&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;submit&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;event&lt;/span&gt; =&amp;gt; {
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;formIsValid&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;;
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;form&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;classList&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;remove&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;);
+
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;formElements&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;forEach&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;formElement&lt;/span&gt; =&amp;gt; {
+		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;formElement&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;dataset&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;formElement&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;dataset&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;validate&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;;
+		&lt;span style=&#34;color:#a6e22e&#34;&gt;validateElement&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;formElement&lt;/span&gt;);
+	});
+
+	&lt;span style=&#34;color:#a6e22e&#34;&gt;formIsValid&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;form&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;querySelectorAll&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.invalid&amp;#34;&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;===&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;formIsValid&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;===&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;) {
+		&lt;span style=&#34;color:#a6e22e&#34;&gt;form&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;classList&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;add&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;);
+		&lt;span style=&#34;color:#a6e22e&#34;&gt;event&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;preventDefault&lt;/span&gt;();
+	}
+});&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;a-working-example&#34;&gt;A Working example&lt;/h2&gt;
+
+&lt;p&gt;That&amp;rsquo;s it! We now have a basic working inline-validation for our form. Here&amp;rsquo;s the working example, feel free to fork it and play around with it:
+&lt;div style=&#34;margin-top: 1rem&#34;&gt;
+&lt;iframe height=&#39;350&#39; scrolling=&#39;no&#39; title=&#39;Inline Form-Validation Example&#39; src=&#39;//codepen.io/niorad/embed/preview/wpQXMz/?height=350&amp;theme-id=dark&amp;default-tab=js,result&amp;embed-version=2&#39; frameborder=&#39;no&#39; allowtransparency=&#39;true&#39; allowfullscreen=&#39;true&#39; style=&#39;width: 100%;&#39;&gt;&lt;/iframe&gt;
+
+&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;extending-and-improving&#34;&gt;Extending and improving&lt;/h2&gt;
+
+&lt;p&gt;We have established a minimal working validation. Here are some possible ways this could be extended:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Adding animation to error-messages for better visibility. The feedback-messages could flash for two seconds, so it&amp;rsquo;s clearer that something went wrong.&lt;/li&gt;
+&lt;li&gt;For long forms, a scroll-to-first-error could be added in case the user still has errors left on form-submit.&lt;/li&gt;
+&lt;li&gt;Forms get complex very quickly. Sometimes, the validation of one field depends on the value of another. For example: A field might be required, if the user is younger than a certain age. In that case, the validators would have to be extended to receive arguments from the data-attribute.&lt;/li&gt;
+&lt;li&gt;To activate/disable entire groups of inputs, we could add a &amp;ldquo;data-disable-validation&amp;rdquo;-attribute to their container, and prevent checking an input if it has such a parent-element.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That&amp;rsquo;s all for now. If you like to give feedback or suggestions, hit me up on &lt;a href=&#34;https://twitter.com/niorad&#34;&gt;Twitter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading!&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -42,7 +313,8 @@ I want to demonstrate that inline-validation is no rocket-surgery, and that it&a
       <pubDate>Thu, 25 Jan 2018 13:57:18 +0100</pubDate>
       
       <guid>https://niorad.github.io/posts/hello-sailor/</guid>
-      <description>Hello, Sailor! This is my little place for technical tutorials, thoughts, and rants.</description>
+      <description>&lt;p&gt;Hello, Sailor! This is my little place for technical tutorials, thoughts, and rants.&lt;/p&gt;
+</description>
     </item>
     
   </channel>
