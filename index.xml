@@ -53,6 +53,7 @@
 	&lt;span style=&#34;color:#66d9ef&#34;&gt;min-height&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;;
 	&lt;span style=&#34;color:#66d9ef&#34;&gt;display&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;grid&lt;/span&gt;;
 	&lt;span style=&#34;color:#66d9ef&#34;&gt;grid-template-rows&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;auto&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;fr &lt;span style=&#34;color:#66d9ef&#34;&gt;auto&lt;/span&gt;;
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;grid-template-columns&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;%&lt;/span&gt;;
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The important bit is the &amp;ldquo;grid-template-rows&amp;rdquo;-property. Here we tell the browser, that we want the first child-element of &amp;ldquo;article&amp;rdquo; to be just as high as it naturally is (&amp;ldquo;auto&amp;rdquo;). The second should be one &lt;a href=&#34;https://www.w3.org/TR/css3-grid-layout/#fr-unit&#34;&gt;fr&lt;/a&gt; high, which means it will get as high as possible, since there&amp;rsquo;s no other fr-item in there. The third child will be of natural height. again.&lt;/p&gt;

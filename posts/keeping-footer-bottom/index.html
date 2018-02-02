@@ -122,6 +122,7 @@
 	<span style="color:#66d9ef">min-height</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
 	<span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">grid</span>;
 	<span style="color:#66d9ef">grid-template-rows</span>: <span style="color:#66d9ef">auto</span> <span style="color:#ae81ff">1</span>fr <span style="color:#66d9ef">auto</span>;
+	<span style="color:#66d9ef">grid-template-columns</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
 }</code></pre></div>
 
 <p>The important bit is the &ldquo;grid-template-rows&rdquo;-property. Here we tell the browser, that we want the first child-element of &ldquo;article&rdquo; to be just as high as it naturally is (&ldquo;auto&rdquo;). The second should be one <a href="https://www.w3.org/TR/css3-grid-layout/#fr-unit">fr</a> high, which means it will get as high as possible, since there&rsquo;s no other fr-item in there. The third child will be of natural height. again.</p>
